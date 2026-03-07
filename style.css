@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@300;500&display=swap');
+
+body {
+    background: #1a1a1a;
+    margin: 0;
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0; /* Ẩn container hoa lúc đầu */
+    transition: opacity 1s ease-in;
+}
+
+svg#flower-frame {
+    height: 90vh;
+    width: auto;
+    max-width: 100%;
+    z-index: 1;
+}
+
+/* Ẩn các phần tử SVG để GSAP xử lý */
+#Footer_group_1_,
+[id^=PinkFlowerGroup],
+[id^=BaseGroup] path,
+[id^=LeafGroup] path,
+path[id^=Stroke],
+g[id^=BudGroup] g[id^=BudGroup] g[id^=Bud],
+#Bud8_1_,
+#Bud10_1_,
+#Bud23_1_,
+#Bud26_1_,
+[id^=Dots],
+[id^=Flourish] {
+    visibility: hidden;
+}
+
+/* --- STYLE CHO LỜI CHÚC --- */
+.message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 10;
+    width: 100%;
+    opacity: 0; /* Ẩn lúc đầu */
+    pointer-events: none;
+}
+
+.message h1 {
+    font-family: 'Dancing Script', cursive;
+    color: #ff4d4d;
+    font-size: 5rem;
+    margin: 0;
+    text-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+}
+
+.message p {
+    color: #fff;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    margin-top: 10px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+}
+
+/* --- STYLE CHO HỘP QUÀ (GIFT BOX) --- */
+#intro-text {
+    margin-bottom: 2rem;
+    color: white;
+}
+.intro-title {
+    font-size: 3rem;
+    color: #ff80ab;
+    text-shadow: 0 0 10px rgba(255, 128, 171, 0.6);
+}
+.intro-sub {
+    font-size: 1.2rem;
+    color: #fce4ec;
+}
+
+.gift-container {
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+.gift-container:hover {
+    transform: scale(1.1);
+}
+
+.box-body {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    background: linear-gradient(to bottom right, #ff4081, #c51162);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 64, 129, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.box-face.front {
+    font-size: 3rem;
+    z-index: 2;
+}
+
+.ribbon-vertical {
+    position: absolute;
+    width: 15px;
+    height: 100%;
+    background: #ffeb3b;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.ribbon-horizontal {
+    position: absolute;
+    height: 15px;
+    width: 100%;
+    background: #ffeb3b;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.bow {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2.5rem;
+    z-index: 3;
+}
+/* --- SỬA LỖI CĂN GIỮA MÀN HÌNH --- */
+#gift-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+    background-color: #1a1a1a; /* Đảm bảo nền đồng bộ */
+}
+
+#intro-text {
+    text-align: center;
+    margin-bottom: 3rem; /* Tương đương mb-12 của Tailwind */
+}
